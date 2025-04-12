@@ -12,7 +12,7 @@
 <a href="https://www.youtube.com/watch?v=BjksLN92P14"><img src="https://img.shields.io/badge/Youtube_Video-green" alt="Youtube Video"></a>
 <a href='https://huggingface.co/datasets/zgchen33/TrackOcc_waymo/'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Data-blue'></a>
 
-<img src="asserts/TrackoccGIF.gif" width="85%"/>
+<img src="assets/TrackoccGIF.gif" width="85%"/>
 
 Same color = same instance, across 3D space and time.
 
