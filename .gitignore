@@ -1,0 +1,79 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Compiled source
+build
+debug
+Debug
+release
+Release
+x64
+*.so
+*.whl
+
+# VS project files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.rc
+.vs
+
+# Byte-compiled / optimized / DLL files
+*__pycache__*
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build
+develop-eggs
+dist
+downloads
+
+# IDE
+.idea
+.vscode
+.vscode
+pyrightconfig.json
+
+# Custom
+data
+outputs
+prediction
+submission
+checkpoints
+pretrain
+ckpts
+occ_result
+visual_dir
+*.png
+*.jpg
+*.log
+settings
+run.sh
+
+check_lidar
+work_dir
+work_dirs
+vis_post_track
+
+
+# packages
+mmcv
+mmdetection
+mmdetection3d
+mmsegmentation
+*egg-info
+
+# dvr
+ignore_files/
+gen_data/
+configs/TrackOcc/trackocc_r50_704x256_3inst_3f_8gpu_ours.py
+.dist_test/
