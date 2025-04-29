@@ -36,8 +36,8 @@ dataset_root = "data/TrackOcc-waymo/kitti_format/"
 occupancy_path = "data/TrackOcc-waymo/pano_voxel04/"
 train_occ_path = occupancy_path + "training/"
 val_occ_path = occupancy_path + "validation/"
-val_anno_file = "waymo_infos_val.pkl" #"waymo_infos_val_jpg.pkl"
-train_anno_file = "waymo_infos_train.pkl" #"waymo_infos_train_jpg.pkl"
+val_anno_file = "waymo_infos_val_jpg.pkl"
+train_anno_file = "waymo_infos_train_jpg.pkl"
 
 test_use_sequence_group_flag = True
 
