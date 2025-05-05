@@ -133,6 +133,8 @@ This project is not possible without multiple great open-sourced code bases. We 
 * [SparseOcc](https://github.com/MCG-NJU/SparseOcc/)
 * [FB-OCC](https://github.com/NVlabs/FB-BEV)
 * [COTR](https://github.com/NotACracker/COTR)
+* [MUTR3D](https://github.com/a1600012888/MUTR3D)
+* [MOTR](https://github.com/megvii-research/MOTR)
 * [4D-PLS](https://github.com/mehmetaygun/4d-pls)
 * [MMDetection3D](https://github.com/open-mmlab/mmdetection3d)
 
