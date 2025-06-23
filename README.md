@@ -74,8 +74,17 @@ pip install -v -e .
 ```
 #### Step 2. Data Preparation 
 
-TrackOcc's data (including 5-frame interval sampled images) and labels are now available on [Hugging Face](https://huggingface.co/datasets/zgchen33/TrackOcc_waymo/). Prepare the `data` folder to the following structure:
+TrackOcc's data (including 5-frame interval sampled data) and labels are now available on [Hugging Face](https://huggingface.co/datasets/zgchen33/TrackOcc_waymo/). Remember to unzip the compressed files:
+```
+cd data/TrackOcc-waymo/
+unzip pano_voxel04.zip
+cd kitti_format/training 
+cat velodyne.zip.part* > velodyne.zip
+unzip velodyne.zip
+unzip 'image_*.zip'
+```
 
+And Preparing the `data` folder to the following structure:
 ```
 data/TrackOcc-waymo
 ├── kitti_format
@@ -84,7 +93,8 @@ data/TrackOcc-waymo
     ├── training
         ├── image_0
         ├── ......
-        └── image_4
+        ├── image_4
+        └── velodyne
 └── pano_voxel04
     ├── trainig
     │   ├── 000
