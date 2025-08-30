@@ -16,7 +16,11 @@ from copy import deepcopy
 from mmdet.models.utils.transformer import inverse_sigmoid
 
 
-def gen_dx_bx(xbound, ybound, zbound, device='cuda'):
+def gen_dx_bx(xbound, ybound, zbound, device='auto'):
+    # Auto-detect device: use CUDA if available, otherwise CPU
+    if device == 'auto':
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    
     dx = torch.Tensor([row[2] for row in [xbound, ybound, zbound]]).to(device)
     bx = torch.Tensor([row[0] + row[2]/2.0 for row in [xbound, ybound, zbound]]).to(device)
     nx = torch.Tensor([(row[1] - row[0]) / row[2] for row in [xbound, ybound, zbound]]).to(device)
@@ -119,7 +123,8 @@ class TrackOcc(MVXTwoStageDetector):
         self.grid_config = grid_config
         self.dx, self.bx, self.nx = gen_dx_bx(grid_config['x'],
                                grid_config['y'],
-                               grid_config['z'])
+                               grid_config['z'],
+                               device='auto')
         self.occ_size = [int((row[1] - row[0]) / row[2]) for row in [grid_config['x'], grid_config['y'], grid_config['z']]]
         self.time_interval = time_interval
         self.with_velo = with_velo

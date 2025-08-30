@@ -46,7 +46,10 @@ class OccEncoder(TransformerLayerSequence):
         self.fix_bug = fix_bug
 
     @staticmethod
-    def get_reference_points(X, Y, Z, bs=1, device='cuda', dtype=torch.float):
+    def get_reference_points(X, Y, Z, bs=1, device='auto', dtype=torch.float):
+        # Auto-detect device: use CUDA if available, otherwise CPU
+        if device == 'auto':
+            device = 'cuda' if torch.cuda.is_available() else 'cpu'
         """Get the reference points used in SCA and TSA.
         Args:
             H, W, Z: spatial shape of volume.
@@ -67,7 +70,10 @@ class OccEncoder(TransformerLayerSequence):
         ref_3d = ref_3d[None, None].repeat(bs, 1, 1, 1)# (bs, num_level, X*Y*Z, 3)
         return ref_3d
 
-    def custom_get_reference_points(self, bs=1, device='cuda', dtype=torch.float):
+    def custom_get_reference_points(self, bs=1, device='auto', dtype=torch.float):
+        # Auto-detect device: use CUDA if available, otherwise CPU
+        if device == 'auto':
+            device = 'cuda' if torch.cuda.is_available() else 'cpu'
         """Get the reference points used in SCA and TSA.
         Args:
             H, W: spatial shape of bev.

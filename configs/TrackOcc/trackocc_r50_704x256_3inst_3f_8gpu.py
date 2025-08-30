@@ -1,6 +1,7 @@
-num_gpus = 8
+num_gpus = 1
 samples_per_gpu = 1
-workers_per_gpu = 5
+workers_per_gpu = 1
+sync_bn = False
 num_queries = 200
 num_stuff_queries = 50
 
@@ -71,7 +72,7 @@ class_weight_multiclass = [
 
 num_classes = len(occ_class_names)
 
-load_interval = 5
+load_interval = 20
 
 data_config = {
     'cams': [
@@ -457,5 +458,6 @@ evaluation = dict(interval= checkpoint_epoch_interval * num_iters_per_epoch,
 load_from = 'pretrain/cascade_mask_rcnn_r50_fpn_coco-20e_20e_nuim_20201009_124951-40963960.pth'
 revise_keys = [('backbone', 'img_backbone')]
 
-# fp16 setting
-fp16 = dict(loss_scale='dynamic')
+# fp16 setting - disabled for CPU compatibility
+# fp16 = dict(loss_scale='dynamic')
+fp16 = None

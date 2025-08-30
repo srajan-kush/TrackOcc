@@ -2,6 +2,8 @@ from setuptools import setup
 from torch.utils.cpp_extension import BuildExtension, CUDAExtension, CppExtension
 import torch
 import os
+# Force CPU-only build
+os.environ['FORCE_CUDA'] = '0'
 
 def make_cuda_ext(name,
                   module,
@@ -13,7 +15,7 @@ def make_cuda_ext(name,
     define_macros = []
     extra_compile_args = {'cxx': [] + extra_args}
 
-    if torch.cuda.is_available() or os.getenv('FORCE_CUDA', '0') == '1':
+    if False and (torch.cuda.is_available() or os.getenv('FORCE_CUDA', '0') == '1'):
         define_macros += [('WITH_CUDA', None)]
         extension = CUDAExtension
         extra_compile_args['nvcc'] = extra_args + [
